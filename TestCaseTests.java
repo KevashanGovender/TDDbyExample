@@ -41,4 +41,15 @@ public class TestCaseTests {
         assert("1 run, 1 failed".equals(result.summary()));
     }
 
+    @Test
+    public void testSuite(){
+
+        TestSuite suite = new TestSuite();
+        suite.add(new WasRun("testMethod"));
+        suite.add(new WasRun("testBrokenMethod"));
+        suite.run(result);
+        System.out.println(result.summary());
+        assert("2 run, 1 failed".equals(result.summary()));
+    }
+
 }

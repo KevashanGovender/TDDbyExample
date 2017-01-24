@@ -32,4 +32,28 @@ public class WasRun extends TestCase{
         throw new NullPointerException();
     }
 
+    public void run(TestResult result) {
+
+        result.testStarted();
+        setUp();
+        try{
+
+            if(name.equals("testMethod")){
+
+                testMethod();
+            }
+
+            if(name.equals("testBrokenMethod")){
+
+                testBrokenMethod();
+            }
+        }
+        catch(NullPointerException e){
+
+            result.testFailed();
+        }
+
+        tearDown();
+    }
+
 }
